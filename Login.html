@@ -12,18 +12,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
+            /* Updated background color */
             background-color: #111827;
             font-family: 'Noto Sans', sans-serif;
             color: #FFF;
         }
+
+        /* Custom styles for the glass container based on your specs */
         .glass-container {
             border-radius: 20px;
             border: 1px solid #AFAFAF;
             background: linear-gradient(321deg, rgba(191, 191, 191, 0.06) 5.98%, rgba(0, 0, 0, 0.00) 66.28%), rgba(0, 0, 0, 0.14);
             box-shadow: -8px 4px 5px 0px rgba(0, 0, 0, 0.24);
             backdrop-filter: blur(26.5px);
-            -webkit-backdrop-filter: blur(26.5px);
+            -webkit-backdrop-filter: blur(26.5px); /* For Safari support */
         }
+
+        /* Custom styles for input fields */
         .custom-input {
             background-color: transparent;
             border-radius: 12px;
@@ -32,26 +37,26 @@
             width: 100%;
             color: #FFF;
         }
-        .custom-input::placeholder { color: #a0aec0; }
-        .login-button { background: linear-gradient(90deg, #8A2BE2, #AD3BEF); }
-        /* Style for error messages */
-        .error-message {
-            color: #f87171; /* A light red color */
-            font-size: 0.875rem;
-            text-align: center;
-            margin-top: 1rem;
-            display: none; /* Hidden by default */
+        .custom-input::placeholder {
+            color: #a0aec0;
+        }
+
+        /* Custom login button gradient */
+        .login-button {
+            background: linear-gradient(90deg, #8A2BE2, #AD3BEF);
         }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
 
+    <!-- Header for the Brand Name -->
     <header class="absolute top-0 left-0 p-4 sm:p-8">
         <h1 class="text-2xl font-bold text-white tracking-wide">SubsTrack</h1>
     </header>
 
     <div class="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-16">
         
+        <!-- Left Side: Welcome Text -->
         <div class="text-center md:text-left">
             <h1 class="text-6xl lg:text-8xl font-semibold leading-tight">
                 Welcome <br> 
@@ -59,19 +64,25 @@
             </h1>
         </div>
 
+        <!-- Right Side: Login Form -->
         <div class="glass-container w-full max-w-md p-8 md:p-10 mx-auto">
             <div class="text-left mb-8">
                 <h2 class="text-2xl font-bold">LOGIN</h2>
                 <p class="text-gray-400 mt-1">Glad you're back!</p>
             </div>
 
-            <form id="login-form" class="space-y-6">
+            <form action="#" class="space-y-6">
+                <!-- Email Input -->
                 <div>
-                    <input id="email" type="email" placeholder="Email" class="custom-input focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                    <input type="email" placeholder="Email" class="custom-input focus:outline-none focus:ring-2 focus:ring-purple-500">
                 </div>
+
+                <!-- Password Input -->
                 <div>
-                    <input id="password" type="password" placeholder="Password" class="custom-input focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                    <input type="password" placeholder="Password" class="custom-input focus:outline-none focus:ring-2 focus:ring-purple-500">
                 </div>
+
+                <!-- Remember Me & Forgot Password -->
                 <div class="flex justify-between items-center text-sm">
                     <label class="flex items-center text-gray-400">
                         <input type="checkbox" class="h-4 w-4 bg-transparent border-gray-500 rounded text-purple-600 focus:ring-purple-500">
@@ -79,21 +90,23 @@
                     </label>
                     <a href="#" class="font-medium text-purple-400 hover:text-purple-300">Forgot password?</a>
                 </div>
+
+                <!-- Login Button -->
                 <div>
-                    <button type="submit" class="w-full login-button text-white font-bold py-3 px-4 rounded-xl text-lg hover:opacity-90 transition-opacity">
+                    <button onclick="window.location.href='homepage.html';" type="button" class="w-full login-button ...">
                         Login
                     </button>
                 </div>
             </form>
 
-            <p id="error-message" class="error-message"></p>
-
+            <!-- Divider -->
             <div class="my-8 flex items-center">
                 <div class="flex-grow border-t border-gray-600"></div>
                 <span class="mx-4 text-gray-500 text-sm">Or</span>
                 <div class="flex-grow border-t border-gray-600"></div>
             </div>
 
+            <!-- Social Logins -->
             <div class="flex justify-center items-center space-x-4">
                 <button class="p-2 border border-gray-600 rounded-full hover:bg-gray-700 transition-colors">
                     <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" class="h-6 w-6"/>
@@ -103,8 +116,9 @@
                 </button>
             </div>
 
+            <!-- Sign Up & Footer Links -->
             <div class="mt-8 text-center text-sm text-gray-400">
-                <p>Don't have an account? <a href="./signup.html" class="font-medium text-purple-400 hover:text-purple-300">Signup</a></p>
+                <p>Don't have an account? <a href="signup.html" class="font-medium text-purple-400 hover:text-purple-300">Signup</a></p>
                 <div class="mt-4 flex justify-center space-x-4 text-xs text-gray-500">
                     <a href="#" class="hover:text-gray-300">Terms & Conditions</a>
                     <a href="#" class="hover:text-gray-300">Support</a>
@@ -114,45 +128,5 @@
         </div>
     </div>
 
-    <script>
-        const loginForm = document.getElementById('login-form');
-        const errorMessage = document.getElementById('error-message');
-
-        loginForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            errorMessage.style.display = 'none';
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            try {
-                const response = await fetch('http://localhost:5001/api/users/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email, password }),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    console.log('Login successful:', data);
-                    localStorage.setItem('token', data.token);
-                    // Redirect to the homepage as requested
-                    window.location.href = 'homepage.html';
-                } else {
-                    errorMessage.textContent = data.error || 'An unknown error occurred.';
-                    errorMessage.style.display = 'block';
-                }
-            } catch (error) {
-                console.error('Login request failed:', error);
-                errorMessage.textContent = 'Could not connect to the server. Please try again later.';
-                errorMessage.style.display = 'block';
-            }
-        });
-    </script>
-
 </body>
 </html>
-
