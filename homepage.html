@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard - SubsTrack</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Class to prevent scrolling when modal is open */
+        .overflow-hidden {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white antialiased">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-gray-800/80 backdrop-blur-sm sticky top-0 z-20">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <!-- Hamburger Menu Button -->
+            <button id="menu-btn" class="focus:outline-none z-30">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="text-right">
+                <p class="text-lg font-medium text-white">Hi, Alex</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Slide-out Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900/90 backdrop-blur-sm z-40 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <!-- Close button inside the menu -->
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white focus:outline-none z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div class="flex flex-col px-8 pt-32 space-y-6">
+            <a href="exploreplans.html" class="text-2xl text-white hover:text-indigo-400">Explore Plans</a>
+            <a href="savingstracker.html" class="text-2xl text-white hover:text-indigo-400">Savings Tracker</a>
+            <a href="splitting.html" class="text-2xl text-white hover:text-indigo-400">Splitting</a>
+            <a href="#" class="text-2xl text-white hover:text-indigo-400">Settings</a>
+            <a href="login.html" class="text-2xl text-white hover:text-indigo-400">Logout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto p-4 sm:p-6 lg:p-8 pt-24 transition-filter duration-300">
+        <div class="text-center my-8">
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                Manage your subscriptions
+            </h1>
+        </div>
+        <div class="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-3xl w-full mx-auto">
+            <!-- Service Cards now have a 'data-service' attribute -->
+            <div data-service="Netflix" class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800 cursor-pointer">
+                <img src="https://img.icons8.com/color/96/000000/netflix.png" alt="Netflix Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Netflix</p>
+            </div>
+            <div data-service="Spotify" class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800 cursor-pointer">
+                <img src="https://img.icons8.com/color/96/000000/spotify.png" alt="Spotify Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Spotify</p>
+            </div>
+            <div data-service="Peacock" class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800 cursor-pointer">
+                <img src="https://img.icons8.com/color/96/peacock-tv.png" alt="Peacock Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Peacock</p>
+            </div>
+            <div data-service="Prime Video" class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800 cursor-pointer">
+                <img src="https://img.icons8.com/color/96/amazon-prime-video.png" alt="Prime Video Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Prime Video</p>
+            </div>
+            <div data-service="YouTube" class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800 cursor-pointer">
+                <img src="https://img.icons8.com/color/96/youtube-play.png" alt="YouTube Premium Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">YouTube</p>
+            </div>
+            <div class="aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 border-2 border-dashed border-gray-700 hover:bg-gray-800 hover:border-indigo-400 cursor-pointer transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                </svg>
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-400">Add New</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Subscription Details Modal -->
+    <div id="subscription-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div class="bg-gray-800/90 border border-gray-700 rounded-2xl shadow-xl w-full max-w-sm p-6 text-white">
+            <!-- Modal Header -->
+            <div class="text-center mb-6">
+                <h2 id="modal-service-name" class="text-2xl font-bold text-red-500 tracking-wider">NETFLIX</h2>
+            </div>
+            <!-- Modal Body -->
+            <div class="space-y-6">
+                <!-- Billing Date -->
+                <div>
+                    <p class="text-sm font-semibold text-gray-400 mb-2">BILLING DATE</p>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-lg font-bold">22-08-2025</p>
+                            <p class="text-xs text-gray-500">LAST BILLED</p>
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold">22-09-2025</p>
+                            <p class="text-xs text-gray-500">NEXT BILL DUE</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Price -->
+                <div>
+                    <p class="text-sm font-semibold text-gray-400 mb-1">PRICE</p>
+                    <p class="text-5xl font-bold">$40</p>
+                </div>
+                <!-- Priority -->
+                <div>
+                    <p class="text-sm font-semibold text-gray-400 mb-2">PRIORITY</p>
+                    <div class="flex items-center space-x-1">
+                        <svg class="w-7 h-7 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-7 h-7 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-7 h-7 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-7 h-7 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-7 h-7 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                </div>
+                <!-- Cancel Button -->
+                <a href="https://www.netflix.com/cancelplan" target="_blank" rel="noopener noreferrer" id="cancel-sub-btn" class="block text-center w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300">
+                    Cancel Sub
+                </a>
+            </div>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Menu Logic ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = menuBtn.querySelector('svg');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            toggleMenu();
+        });
+
+        document.addEventListener('click', (e) => {
+            const isMenuOpen = !mobileMenu.classList.contains('-translate-x-full');
+            if (isMenuOpen && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+        
+        function toggleMenu() {
+            mobileMenu.classList.toggle('-translate-x-full');
+            if (mobileMenu.classList.contains('-translate-x-full')) {
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />`;
+            } else {
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />`;
+            }
+        }
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('subscription-modal');
+        const mainContent = document.getElementById('main-content');
+        const serviceCards = document.querySelectorAll('.service-card');
+        const modalServiceName = document.getElementById('modal-service-name');
+
+        function openModal(serviceName) {
+            modalServiceName.textContent = serviceName.toUpperCase();
+            modal.classList.remove('hidden');
+            mainContent.classList.add('blur-sm');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            mainContent.classList.remove('blur-sm');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        serviceCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const serviceName = card.dataset.service;
+                if(serviceName) {
+                    openModal(serviceName);
+                }
+            });
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    });
+</script>
+</body>
+</html>

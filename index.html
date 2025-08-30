@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubsTrack - Your Subscription Manager</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to apply the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the fade-in animation */
+        .service-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white antialiased">
+    
+    <header class="absolute top-0 left-0 right-0 p-4 sm:p-6 z-20">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white tracking-wide">SubsTrack</a>
+
+            <!-- Desktop Navigation -->
+            <nav class="flex items-center space-x-4 sm:space-x-6">
+                <!-- This now points to the login page -->
+                <a href="login.html" class="text-gray-300 ...">Login</a>
+                <!-- This can also point to a sign-up page or the login page -->
+                <a href="login.html" class="bg-indigo-600 ...">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+        
+        <div class="text-center mb-12 pt-20">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+                All your subscriptions.
+            </h1>
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-indigo-400">
+                One simple dashboard.
+            </h2>
+            <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-400">
+                We track everything, so you never miss a payment or an opportunity to save. Connect with services you already love.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-3xl w-full">
+            
+            <div class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800">
+                <img src="https://img.icons8.com/color/96/000000/netflix.png" alt="Netflix Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Netflix</p>
+            </div>
+
+            <div class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800">
+                <img src="https://img.icons8.com/color/96/000000/spotify.png" alt="Spotify Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Spotify</p>
+            </div>
+
+            <div class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800">
+                <img src="https://img.icons8.com/color/96/peacock-tv.png" alt="Peacock Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Peacock</p>
+            </div>
+
+            <div class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800">
+                <img src="https://img.icons8.com/color/96/amazon-prime-video.png" alt="Prime Video Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Prime Video</p>
+            </div>
+
+            <div class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800">
+                <img src="https://img.icons8.com/color/96/youtube-play.png" alt="YouTube Premium Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">YouTube</p>
+            </div>
+
+            <div class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800">
+                <img src="https://img.icons8.com/fluency/96/apple-music.png" alt="Apple Music Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Apple Music</p>
+            </div>
+            
+            <div class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800">
+                <img src="https://img.icons8.com/color/96/hulu.png" alt="Hulu Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">Hulu</p>
+            </div>
+
+            <div class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 transition-transform duration-300 hover:scale-105 hover:bg-gray-800">
+                <img src="https://img.icons8.com/color/96/hbo.png" alt="HBO Max Logo" class="h-12 w-12 sm:h-16 sm:w-16">
+                <p class="mt-3 text-sm sm:text-base font-medium text-gray-300">HBO Max</p>
+            </div>
+
+            <div class="service-card aspect-square flex flex-col items-center justify-center bg-gray-800/50 rounded-2xl p-4 border-2 border-dashed border-gray-700">
+                <p class="text-center text-sm sm:text-base font-medium text-gray-400">...and many more</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // --- Card Fade-in Animation Logic ---
+            const cards = document.querySelectorAll('.service-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    observer.observe(card);
+                }, index * 100);
+            });
+        });
+    </script>
+
+</body>
+</html>
